@@ -77,19 +77,21 @@ export const Hero = () => {
               className="flex flex-col sm:flex-row gap-4 pt-8"
             >
               <motion.div variants={fadeInUp}>
-  <a
-    href="/src/assets/Vaibhav_Katjar_Resume-2.pdf"
-    download="Vaibhav_Katjar_Resume-2.pdf"
+<a
+  href="/Vaibhav_Katkar_Resume-2.pdf"
+  download="Vaibhav_Katkar_Resume-2.pdf"
+>
+  <NeonButton
+    size="lg"
+    variant="primary"
+    className="w-full sm:w-auto flex items-center justify-center gap-2"
   >
-    <NeonButton
-      size="lg"
-      variant="primary"
-      className="w-full sm:w-auto flex items-center justify-center gap-2"
-    >
-      <Download size={20} />
-      Download Resume
-    </NeonButton>
-  </a>
+    <Download size={20} />
+    Download Resume
+  </NeonButton>
+</a>
+
+
 </motion.div>
 
 

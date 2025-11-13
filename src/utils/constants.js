@@ -50,7 +50,7 @@ export const PARTICLE_SETTINGS = {
 
 export const SOCIAL_LINKS = {
   email: 'vaibhav.katkar@indiraicem.ac.in',
-  phone: '+91 7038128870',
+  phone: '91 7038128870',
   linkedin: 'https://linkedin.com',
   github: 'https://github.com',
 };

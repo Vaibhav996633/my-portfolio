@@ -42,10 +42,10 @@ export const Footer = () => {
             viewport={{ once: true }}
             className="text-center md:text-right"
           >
-            <p className="text-sm text-muted-foreground">
+            {/* <p className="text-sm text-muted-foreground">
               Built with <span className="text-neon-blue">💙</span> using{' '}
               <span className="text-neon-purple">React.js</span>
-            </p>
+            </p> */}
             <p className="text-xs text-muted-foreground mt-1">
               © {new Date().getFullYear()} Vaibhav Katkar. All rights reserved.
             </p>
