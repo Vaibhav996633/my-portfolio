@@ -53,4 +53,5 @@ export const SOCIAL_LINKS = {
   phone: '91 7038128870',
   linkedin: 'https://linkedin.com',
   github: 'https://github.com',
+  instagram: "https://www.instagram.com/_mysterio_963_?igsh=anhncTd6cjMyeGsw",
 };

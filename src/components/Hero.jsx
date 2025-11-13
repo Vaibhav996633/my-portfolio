@@ -47,10 +47,10 @@ export const Hero = () => {
             {/* Typing Animation */}
             <motion.h1
               variants={fadeInUp}
-              className="text-4xl md:text-5xl lg:text-6xl font-orbitron font-bold text-neon-blue"
+              className="text-4xl md:text-5xl lg:text-6xl font-orbitron font-bold"
             >
-              <span className="text-white">{displayedText}</span>
-              <span className="animate-pulse">_</span>
+              <span className="text-black dark:text-white">{displayedText}</span>
+              <span className="animate-pulse text-neon-blue">_</span>
             </motion.h1>
 
             {/* Title */}
