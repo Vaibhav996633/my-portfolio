@@ -1,0 +1,83 @@
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
+import { cn } from '@/lib/utils';
+
+const NAV_ITEMS = [
+  { name: 'Home', href: '#home' },
+  { name: 'About', href: '#about' },
+  { name: 'Skills', href: '#skills' },
+  { name: 'Projects', href: '#projects' },
+  { name: 'Education', href: '#education' },
+  { name: 'Contact', href: '#contact' },
+];
+
+export const Navbar: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-40 glass border-b border-white/10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16 md:h-20">
+          {/* Logo */}
+          <motion.div
+            className="font-orbitron font-bold text-2xl bg-gradient-to-r from-neon-blue via-neon-purple to-neon-green bg-clip-text text-transparent"
+            whileHover={{ scale: 1.05 }}
+          >
+            VK
+          </motion.div>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-1">
+            {NAV_ITEMS.map((item) => (
+              <motion.a
+                key={item.name}
+                href={item.href}
+                className={cn(
+                  'px-3 py-2 text-sm font-medium text-foreground',
+                  'hover:text-neon-blue transition-colors duration-300',
+                  'relative group'
+                )}
+                whileHover={{ scale: 1.05 }}
+              >
+                {item.name}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-neon-blue to-neon-purple group-hover:w-full transition-all duration-300" />
+              </motion.a>
+            ))}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <motion.button
+            className="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
+            onClick={() => setIsOpen(!isOpen)}
+            whileTap={{ scale: 0.95 }}
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </motion.button>
+        </div>
+
+        {/* Mobile Navigation */}
+        <motion.div
+          initial={false}
+          animate={{ height: isOpen ? 'auto' : 0 }}
+          transition={{ duration: 0.3 }}
+          className="md:hidden overflow-hidden"
+        >
+          <div className="px-2 pt-2 pb-3 space-y-1">
+            {NAV_ITEMS.map((item) => (
+              <motion.a
+                key={item.name}
+                href={item.href}
+                className="block px-3 py-2 rounded-lg text-foreground hover:bg-white/10 hover:text-neon-blue transition-colors"
+                onClick={() => setIsOpen(false)}
+                whileHover={{ x: 5 }}
+              >
+                {item.name}
+              </motion.a>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </nav>
+  );
+};

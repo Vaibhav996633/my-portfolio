@@ -1,0 +1,181 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Cyberpunk portfolio theme
+   * Dark mode: Electric blue, neon purple, and cyber green on dark background
+   * Light mode: Professional with neon accents on light background
+  */
+  :root {
+    /* Light Mode Default - Professional Clean Look */
+    --background: 0 0% 98%;
+    --foreground: 220 20% 15%;
+
+    /* Card styling with glassmorphism */
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 15%;
+
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
+
+    /* Neon colors - Adjusted for light mode visibility */
+    --neon-blue: 180 90% 40%;
+    --neon-cyan: 180 90% 40%;
+    --neon-purple: 280 80% 45%;
+    --neon-green: 140 80% 40%;
+    --neon-pink: 320 90% 45%;
+
+    /* Primary color - electric blue */
+    --primary: 180 90% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - neon purple */
+    --secondary: 280 80% 45%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted colors */
+    --muted: 220 15% 75%;
+    --muted-foreground: 220 15% 45%;
+
+    /* Accent - cyber green */
+    --accent: 140 80% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Destructive */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Border and input */
+    --border: 220 20% 88%;
+    --input: 220 20% 95%;
+    --ring: 180 90% 40%;
+
+    --radius: 0.5rem;
+
+    /* Sidebar colors */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 220 20% 15%;
+    --sidebar-primary: 180 90% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 280 80% 45%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 220 20% 88%;
+    --sidebar-ring: 180 90% 40%;
+  }
+
+  .dark {
+    /* Dark cyberpunk background */
+    --background: 220 20% 8%;
+    --foreground: 180 100% 95%;
+
+    /* Card styling with glassmorphism */
+    --card: 220 20% 12%;
+    --card-foreground: 180 100% 95%;
+
+    /* Popover */
+    --popover: 220 20% 12%;
+    --popover-foreground: 180 100% 95%;
+
+    /* Neon colors */
+    --neon-blue: 180 100% 50%;
+    --neon-cyan: 180 100% 50%;
+    --neon-purple: 280 100% 62%;
+    --neon-green: 140 100% 50%;
+    --neon-pink: 320 100% 60%;
+
+    /* Primary color - electric blue */
+    --primary: 180 100% 50%;
+    --primary-foreground: 220 20% 8%;
+
+    /* Secondary - neon purple */
+    --secondary: 280 100% 62%;
+    --secondary-foreground: 220 20% 8%;
+
+    /* Muted colors */
+    --muted: 220 15% 35%;
+    --muted-foreground: 180 10% 75%;
+
+    /* Accent - cyber green */
+    --accent: 140 100% 50%;
+    --accent-foreground: 220 20% 8%;
+
+    /* Destructive */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 220 20% 8%;
+
+    /* Border and input */
+    --border: 180 50% 40%;
+    --input: 220 20% 20%;
+    --ring: 180 100% 50%;
+
+    /* Sidebar colors */
+    --sidebar-background: 220 20% 8%;
+    --sidebar-foreground: 180 100% 95%;
+    --sidebar-primary: 180 100% 50%;
+    --sidebar-primary-foreground: 220 20% 8%;
+    --sidebar-accent: 280 100% 62%;
+    --sidebar-accent-foreground: 220 20% 8%;
+    --sidebar-border: 180 50% 30%;
+    --sidebar-ring: 180 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-poppins;
+  }
+
+  body.dark {
+    background: linear-gradient(135deg, hsl(220 20% 8%) 0%, hsl(220 25% 10%) 50%, hsl(220 20% 8%) 100%);
+  }
+
+  body:not(.dark) {
+    background: linear-gradient(135deg, hsl(0 0% 98%) 0%, hsl(220 15% 96%) 50%, hsl(0 0% 98%) 100%);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-orbitron font-bold;
+  }
+
+  :where(p, span, li, a, button, label, td, th) {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  pre,
+  code {
+    overflow-x: auto;
+    white-space: pre;
+  }
+}
+
+@layer components {
+  /* Glassmorphism effect */
+  .glass {
+    @apply backdrop-blur-[10px] bg-white/5 border border-white/10;
+  }
+
+  /* Glowing text effect */
+  .glow-text {
+    @apply text-neon-blue drop-shadow-[0_0_10px_rgba(0,255,255,0.5)];
+  }
+
+  /* Glowing border effect */
+  .glow-border {
+    @apply border border-neon-blue shadow-neon;
+  }
+}
