@@ -1,16 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import { Download, ArrowRight } from 'lucide-react';
-import { NeonButton } from './NeonButton';
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { Download } from "lucide-react";
+import { NeonButton } from "./NeonButton";
 import vaibhavImage from "@/assets/vaibhav_Image.jpg";
-import {
-  fadeInUp,
-  scaleIn,
-  staggerContainer,
-} from '../utils/animations';
+import { fadeInUp, scaleIn, staggerContainer } from "../utils/animations";
 
 export const Hero = () => {
-  const [displayedText, setDisplayedText] = useState('');
+  const [displayedText, setDisplayedText] = useState("");
   const fullText = "Hi, I'm Vaibhav Katkar 👋";
 
   useEffect(() => {
@@ -32,12 +28,13 @@ export const Hero = () => {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-0"
     >
-      {/* Background gradient effect */}
+      {/* Background gradient orbs */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-blue blur-3xl rounded-full opacity-10" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-neon-purple blur-3xl rounded-full opacity-10" />
       </div>
 
+      {/* Main Content */}
       <motion.div
         variants={staggerContainer}
         initial="hidden"
@@ -45,9 +42,9 @@ export const Hero = () => {
         className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20"
       >
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
+          {/* Left Side Content */}
           <motion.div className="space-y-6">
-            {/* Typing animation */}
+            {/* Typing Animation */}
             <motion.h1
               variants={fadeInUp}
               className="text-4xl md:text-5xl lg:text-6xl font-orbitron font-bold text-neon-blue"
@@ -68,107 +65,98 @@ export const Hero = () => {
               variants={fadeInUp}
               className="text-lg text-muted-foreground leading-relaxed max-w-xl"
             >
-              Building smart, immersive, and human-centered digital experiences through creative design and robust backend development.
+              Building smart, immersive, and human-centered digital experiences
+              through creative design and robust backend development.
             </motion.p>
 
-            {/* CTA Buttons */}
+            {/* Buttons */}
             <motion.div
               variants={staggerContainer}
               className="flex flex-col sm:flex-row gap-4 pt-8"
             >
+              {/* ✅ Working Resume Download */}
               <motion.div variants={fadeInUp}>
-<a
-  href="/Vaibhav_Katkar_Resume-2.pdf"
-  download="Vaibhav_Katkar_Resume-2.pdf"
->
-  <NeonButton
-    size="lg"
-    variant="primary"
-    className="w-full sm:w-auto flex items-center justify-center gap-2"
-  >
-    <Download size={20} />
-    Download Resume
-  </NeonButton>
-</a>
-
-
-</motion.div>
-
-
-              <motion.div variants={fadeInUp}>
-                {/* <NeonButton
-                  size="lg"
-                  variant="secondary"
-                  className="w-full sm:w-auto flex items-center justify-center gap-2"
+                <a
+                  href="/Vaibhav_Katkar_Resume.pdf"
+                  download="Vaibhav_Katkar_Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  Explore My Work
-                  <ArrowRight size={20} />
-                </NeonButton> */}
+                  <NeonButton
+                    size="lg"
+                    variant="primary"
+                    className="w-full sm:w-auto flex items-center justify-center gap-2"
+                  >
+                    <Download size={20} />
+                    Download Resume
+                  </NeonButton>
+                </a>
               </motion.div>
             </motion.div>
 
-            {/* Quick Stats */}
+            {/* Stats Section */}
             <motion.div
               variants={fadeInUp}
               className="grid grid-cols-3 gap-4 pt-8 border-t border-white/10"
             >
               {[
-                { label: 'Projects', value: '3+' },
-                { label: 'Tech Skills', value: '10+' },
-                // { label: 'Experience', value: '2y+' },
+                { label: "Projects", value: "3+" },
+                { label: "Tech Skills", value: "10+" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <div className="text-2xl font-bold text-neon-cyan">{stat.value}</div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
+                  <div className="text-2xl font-bold text-neon-cyan">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    {stat.label}
+                  </div>
                 </div>
               ))}
             </motion.div>
           </motion.div>
 
-          {/* Right Side - Profile Photo and Effects */}
+          {/* Right Side - Profile Image with Neon Glow */}
           <motion.div
             variants={scaleIn}
             className="relative h-96 md:h-full flex items-center justify-center"
           >
-            {/* Glowing orbs background */}
             <div className="absolute inset-0 flex items-center justify-center">
               <motion.div
                 className="absolute w-64 h-64 md:w-80 md:h-80 border-2 border-neon-blue rounded-full opacity-20"
                 animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               />
               <motion.div
                 className="absolute w-48 h-48 md:w-64 md:h-64 border-2 border-neon-purple rounded-full opacity-20"
                 animate={{ rotate: -360 }}
-                transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
+                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
               />
             </div>
 
-            {/* Profile Photo */}
             <motion.div
-  className="relative z-10"
-  animate={{ y: [0, -20, 0] }}
-  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
->
-  <div className="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
-    {/* Neon Ring Behind Image (no blur on top) */}
-    <div className="absolute inset-0 rounded-full border-4 border-neon-blue opacity-60 animate-pulse shadow-[0_0_40px_rgba(0,200,255,0.6)]"></div>
+              className="relative z-10"
+              animate={{ y: [0, -20, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <div className="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
+                {/* Neon Ring Behind Image */}
+                <div className="absolute inset-0 rounded-full border-4 border-neon-blue opacity-60 animate-pulse shadow-[0_0_40px_rgba(0,200,255,0.6)]"></div>
 
-    {/* Photo Frame */}
-    <div className="relative rounded-full p-2 bg-gradient-to-br from-neon-blue to-neon-purple shadow-[0_0_25px_rgba(0,200,255,0.6)]">
-      <img
-        src={vaibhavImage}
-        alt="Vaibhav"
-        className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-neon-blue shadow-[0_0_40px_rgba(0,200,255,0.8)] hover:scale-105 transition-transform duration-300"
-      />
-    </div>
+                {/* Profile Image */}
+                <div className="relative rounded-full p-2 bg-gradient-to-br from-neon-blue to-neon-purple shadow-[0_0_25px_rgba(0,200,255,0.6)]">
+                  <img
+                    src={vaibhavImage}
+                    alt="Vaibhav"
+                    className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-neon-blue shadow-[0_0_40px_rgba(0,200,255,0.8)] hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
 
-    {/* Reflection */}
-    <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 w-48 h-16 bg-gradient-to-b from-neon-cyan to-transparent opacity-20 blur-xl rounded-full"></div>
-  </div>
-</motion.div>
+                {/* Reflection */}
+                <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 w-48 h-16 bg-gradient-to-b from-neon-cyan to-transparent opacity-20 blur-xl rounded-full"></div>
+              </div>
+            </motion.div>
 
-            {/* Floating elements around photo */}
+            {/* Floating Neon Dots */}
             {[0, 1, 2, 3, 4].map((i) => (
               <motion.div
                 key={i}
@@ -184,7 +172,7 @@ export const Hero = () => {
                 transition={{
                   duration: 3 + i * 0.5,
                   repeat: Infinity,
-                  ease: 'easeInOut',
+                  ease: "easeInOut",
                 }}
               />
             ))}
@@ -192,7 +180,7 @@ export const Hero = () => {
         </div>
       </motion.div>
 
-      {/* Scroll indicator */}
+      {/* Scroll Indicator */}
       <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         animate={{ y: [0, 10, 0] }}

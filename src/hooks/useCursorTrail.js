@@ -14,20 +14,22 @@ export const useCursorTrail = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
 
-    const handleMouseMove = (e) => {
-      mouseRef.current = { x: e.clientX, y: e.clientY };
+    resizeCanvas();
 
-      // Create particles on mouse movement
+    // Function to spawn particles
+    const spawnParticles = (x, y) => {
       for (let i = 0; i < 2; i++) {
         const angle = Math.random() * Math.PI * 2;
         const velocity = 1 + Math.random() * 3;
 
         particlesRef.current.push({
-          x: e.clientX,
-          y: e.clientY,
+          x,
+          y,
           vx: Math.cos(angle) * velocity,
           vy: Math.sin(angle) * velocity,
           life: 1,
@@ -37,26 +39,38 @@ export const useCursorTrail = () => {
       }
     };
 
+    // Handle both mouse and touch movement
+    const handleMove = (x, y) => {
+      mouseRef.current = { x, y };
+      spawnParticles(x, y);
+    };
+
+    const handleMouseMove = (e) => {
+      handleMove(e.clientX, e.clientY);
+    };
+
+    const handleTouchMove = (e) => {
+      const touch = e.touches[0];
+      if (touch) handleMove(touch.clientX, touch.clientY);
+    };
+
     const animate = () => {
-      // Use clearRect instead of fillRect to avoid color shifting
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Update and draw particles
       particlesRef.current = particlesRef.current.filter((particle) => {
         particle.life -= 0.015;
         particle.x += particle.vx;
         particle.y += particle.vy;
-        particle.vy += 0.1; // Gravity effect
+        particle.vy += 0.1; // Gravity
 
         if (particle.life > 0) {
-          // Draw particle with cyan glow
+          // Neon glow particle
           ctx.shadowColor = 'rgba(0, 255, 255, 0.8)';
           ctx.shadowBlur = 10;
           ctx.fillStyle = `rgba(0, 255, 255, ${particle.life * 0.6})`;
           ctx.beginPath();
           ctx.arc(particle.x, particle.y, particle.size * particle.life, 0, Math.PI * 2);
           ctx.fill();
-
           return true;
         }
         return false;
@@ -65,19 +79,18 @@ export const useCursorTrail = () => {
       animationFrameRef.current = requestAnimationFrame(animate);
     };
 
+    // Event listeners
     window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('touchmove', handleTouchMove);
+    window.addEventListener('resize', resizeCanvas);
+
     animate();
 
-    const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-
-    window.addEventListener('resize', handleResize);
-
+    // Cleanup
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('resize', resizeCanvas);
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }
