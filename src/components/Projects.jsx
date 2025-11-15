@@ -4,6 +4,10 @@ import { X, Github, ExternalLink } from 'lucide-react';
 import { SectionTitle } from './SectionTitle';
 import { NeonButton } from './NeonButton';
 import { PROJECTS } from '../utils/data';
+import PetImg from "@/assets/Pet_img.jpg";
+import CricketImg from "@/assets/Cricket_img.jpg";
+import AccidentImg from "@/assets/Accident_img.png";
+
 import {
   fadeInUp,
   staggerContainer,
@@ -28,9 +32,20 @@ const ProjectCard = ({ project, onOpen }) => {
             }}
             transition={{ duration: 3, repeat: Infinity }}
           />
-          <div className="relative z-10 text-6xl opacity-40 group-hover:opacity-60 transition-opacity">
-            {project.id === 1 ? '🐾' : project.id === 2 ? '🏏' : '🛡️'}
-          </div>
+         <div className="h-64 rounded-xl overflow-hidden border border-white/10">
+  <img
+    src={
+      project.id === 1
+        ? PetImg
+        : project.id === 2
+        ? CricketImg
+        : AccidentImg
+    }
+    alt={project.title}
+    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+  />
+</div>
+
         </div>
 
         {/* Content section */}
@@ -109,10 +124,20 @@ const ProjectModal = ({ project, onClose }) => {
             <h2 className="text-3xl md:text-4xl font-bold text-neon-blue">{project.title}</h2>
           </div>
 
-          {/* Image placeholder */}
-          <div className="h-64 rounded-xl bg-gradient-to-br from-neon-blue/10 to-neon-purple/10 flex items-center justify-center text-6xl opacity-30 border border-white/10">
-            {project.id === 1 ? '🐾' : project.id === 2 ? '🏏' : '🛡️'}
-          </div>
+          <div className="h-64 rounded-xl overflow-hidden border border-white/10">
+  <img
+    src={
+      project.id === 1
+        ? PetImg
+        : project.id === 2
+        ? CricketImg
+        : AccidentImg
+    }
+    alt={project.title}
+    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+  />
+</div>
+
 
           {/* Description */}
           <div className="space-y-4">
