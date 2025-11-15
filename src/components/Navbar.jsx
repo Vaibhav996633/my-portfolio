@@ -77,12 +77,16 @@ export const Navbar = () => {
       {/* Mobile Navigation */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
+         <motion.div
+  initial={{ opacity: 0, height: 0 }}
+  animate={{ opacity: 1, height: "auto" }}
+  exit={{ opacity: 0, height: 0 }}
+ // className="md:hidden overflow-hidden w-full bg-black/60 backdrop-blur-lg border-t border-white/10"
+
             transition={{ duration: 0.25 }}
-            className="md:hidden overflow-hidden bg-background/60 backdrop-blur-lg border-t border-white/10"
+           className="md:hidden overflow-hidden bg-card/60 backdrop-blur-lg border-t border-white/10"
+
+
           >
             <div className="px-4 py-3 space-y-2">
               {NAV_ITEMS.map((item) => (

@@ -4,6 +4,7 @@ import { Mail, Phone, Linkedin, Github, Instagram } from "lucide-react";
 import { SectionTitle } from "./SectionTitle";
 import { SOCIAL_LINKS } from "../utils/constants";
 import { staggerContainer, staggerItem } from "../utils/animations";
+import { MessageCircle } from 'lucide-react';
 
 export const Contact = () => {
   return (
@@ -86,10 +87,10 @@ export const Contact = () => {
                 color: "neon-pink",
               },
               {
-                icon: Phone,
-                href: `https://wa.me/${SOCIAL_LINKS.phone.replace("+", "")}`,
-                label: "WhatsApp",
-                color: "neon-green",
+                icon: MessageCircle,
+  href: `https://wa.me/${SOCIAL_LINKS.phone.replace("+", "")}`,
+  label: "WhatsApp",
+  color: "neon-green",
               },
               {
                 icon: Mail,
