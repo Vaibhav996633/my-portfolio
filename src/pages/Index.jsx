@@ -7,23 +7,27 @@ import { Projects } from '../components/Projects';
 import { Education } from '../components/Education';
 import { Contact } from '../components/Contact';
 import { Footer } from '../components/Footer';
+import RevealEffectLoader from '../components/RevealEffectLoader';
+
 
 export default function Index() {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-hidden">
-      <CursorEffect />
-      <Navbar />
+    <RevealEffectLoader>
+      <div className="min-h-screen bg-background text-foreground overflow-hidden">
+        <CursorEffect />
+        <Navbar />
 
-      <main className="relative">
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Education />
-        <Contact />
-      </main>
+        <main className="relative">
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Education />
+          <Contact />
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </RevealEffectLoader>
   );
 }

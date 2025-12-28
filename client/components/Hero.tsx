@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import ThreeCube from "./ThreeCube";
 import { motion } from 'framer-motion';
 import { Download, ArrowRight } from 'lucide-react';
 import { NeonButton } from './NeonButton';
@@ -32,6 +33,10 @@ export const Hero: React.FC = () => {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-0"
     >
+      {/* 3D Cube Overlay */}
+      <div style={{ position: 'absolute', top: 40, left: 40, zIndex: 50, pointerEvents: 'none' }}>
+        <ThreeCube />
+      </div>
       {/* Background gradient effect */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-blue blur-3xl rounded-full opacity-10" />
