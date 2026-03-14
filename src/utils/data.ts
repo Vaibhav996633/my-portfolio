@@ -6,7 +6,7 @@ export const PROJECTS = [
     tags: ['React.js', 'MongoDB', 'E-commerce'],
     description: 'Full-stack application for managing pet profiles, health tracking, and essential products.',
     longDescription: 'Developed a comprehensive full-stack application using React.js for frontend development and MongoDB for backend storage. Implemented secure user interface for smooth data management, pet profile management, health tracking, and appointment scheduling with integrated e-store for pet products.',
-    image: '/placeholder.svg',
+    image: 'Pet_img.jpg',
     technologies: ['React.js', 'MongoDB', 'Express.js', 'Node.js', 'Tailwind CSS'],
     links: {
       github: '#',
@@ -20,7 +20,7 @@ export const PROJECTS = [
     tags: ['Java', 'Spring Boot', 'MySQL'],
     description: 'Beginner-level web application to display live cricket scores, match history, and points tables.',
     longDescription: 'Designed and developed a web application using Java, Spring Boot, and MySQL. Displays live cricket scores, match history, and points tables. Learned to integrate backend APIs and web scraping for real-time data updates, demonstrating knowledge of REST APIs and database management.',
-    image: '/placeholder.svg',
+    image: 'Cricket_img.jpg',
     technologies: ['Java', 'Spring Boot', 'MySQL', 'REST API', 'Web Scraping'],
     links: {
       github: '#',
@@ -34,7 +34,7 @@ export const PROJECTS = [
     tags: ['React', 'Spring Boot', 'Data Analysis'],
     description: 'Smart safety alert platform with incident reporting, location mapping, and emergency helplines.',
     longDescription: 'An innovative safety-tech platform where users can report incidents, view nearby safety alerts on interactive maps, and access emergency helplines instantly. Designed with React UI, Spring Boot APIs, and Power BI analytics for comprehensive safety data visualization and analysis.',
-    image: '/placeholder.svg',
+    image: 'Accident_img.png',
     technologies: ['React.js', 'Spring Boot', 'Power BI', 'Google Maps API', 'MySQL'],
     links: {
       github: '#',
