@@ -161,6 +161,30 @@
     overflow-x: auto;
     white-space: pre;
   }
+
+  /* Red Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #ff0000;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #cc0000;
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #ff0000 transparent;
+  }
 }
 
 @layer components {
@@ -179,3 +203,4 @@
     @apply border border-neon-blue shadow-neon;
   }
 }
+

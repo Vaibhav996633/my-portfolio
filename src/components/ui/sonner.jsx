@@ -5,3 +5,4 @@ export function Toaster() {
   // In a real app, you'd integrate with sonner library
   return null;
 }
+
