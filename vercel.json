@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index.ts"
+    },
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/index.html"
+    }
+  ],
+  "build": {
+    "env": {
+      "NODE_VERSION": "20"
+    }
+  }
+}
